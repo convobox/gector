@@ -142,7 +142,7 @@ class Seq2Labels(Model):
 
         if self.confidence > 0:
             probability_change = [self.confidence] + [0] * (self.num_labels_classes - 1)
-            if torch.cuda.is_available()
+            if torch.cuda.is_available():
                 class_probabilities_labels += torch.cuda.FloatTensor(probability_change).repeat(
                     (batch_size, sequence_length, 1))
             else:
