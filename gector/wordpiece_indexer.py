@@ -411,7 +411,7 @@ class PretrainedBertIndexer(WordpieceIndexer):
         # hack
         model_path = pretrained_model
         if model_path == 'xlnet-base-cased':
-            model_path = '/mnt/d/Linuxfiles/gector/xlnetmodel'
+            model_path = '/mnt/d/Linuxfiles/gector_my/gector/xlnetmodel'
 
         print("model_path", model_path)
 
