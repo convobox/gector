@@ -77,11 +77,21 @@ class GecBERTModel(object):
 
         self.indexers = []
         self.models = []
+
+        print("In the GecBERTModel constructor")
+
         for model_path in model_paths:
             if is_ensemble:
                 model_name, special_tokens_fix = self._get_model_data(model_path)
             weights_name = get_weights_name(model_name, lowercase_tokens)
+
+            print("model_path", model_path)
+            print("model_name", model_name)
+            print("weights_path", weights_name)
+
+            # the _get_indexer function is what we need for prediction
             self.indexers.append(self._get_indexer(weights_name, special_tokens_fix))
+            
             model = Seq2Labels(vocab=self.vocab,
                                text_field_embedder=self._get_embbeder(weights_name, special_tokens_fix),
                                confidence=self.confidence
@@ -180,6 +190,9 @@ class GecBERTModel(object):
         return text_field_embedder
 
     def _get_indexer(self, weights_name, special_tokens_fix):
+        
+        print("In the _get_indexer function")
+
         bert_token_indexer = PretrainedBertIndexer(
             pretrained_model=weights_name,
             do_lowercase=self.lowercase_tokens,
