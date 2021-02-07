@@ -27,6 +27,9 @@ def predict_for_file(input_file, output_file, model, batch_size=32):
 
 
 def main(args):
+
+    print("In the main function")
+
     # get all paths
     model = GecBERTModel(vocab_path=args.vocab_path,
                          model_paths=args.model_path,
