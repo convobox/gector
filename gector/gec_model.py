@@ -78,16 +78,10 @@ class GecBERTModel(object):
         self.indexers = []
         self.models = []
 
-        # print("In the GecBERTModel constructor")
-
         for model_path in model_paths:
             if is_ensemble:
                 model_name, special_tokens_fix = self._get_model_data(model_path)
             weights_name = get_weights_name(model_name, lowercase_tokens)
-
-            # print("model_path", model_path)
-            # print("model_name", model_name)
-            # print("weights_path", weights_name)
 
             # the _get_indexer function is what we need for prediction
             self.indexers.append(self._get_indexer(weights_name, special_tokens_fix))
