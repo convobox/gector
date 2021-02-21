@@ -136,10 +136,5 @@ dmypy.json
 
 # my file
 RoBERTamodel/
-large_test.txt
-large_test_out.txt
-large_test_truth.txt
-out
 tags
-test
 xlnetmodel/
